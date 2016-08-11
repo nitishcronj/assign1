@@ -1,0 +1,174 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="mycss.css">
+<style>
+#addemp {
+width:50%;
+padding:15px;
+margin:50px;
+background-color:#999;
+
+ display:none;
+}
+
+#login{
+background-color:#999;
+width:30%;
+padding:15px;
+margin:50px;
+}
+
+#id02{
+	color:red;
+	
+}
+#emplogin{
+position:absolute;
+
+background-color:#999;
+height:50px;
+margin:15px;
+padding:15px;
+position: absolute;
+right:20px;
+top:20px;
+
+}
+#empname{
+
+width:90px;
+
+}
+#emppass{
+width:90px;
+}
+</style>
+</head>
+<body>
+<p id=id03></p>
+    <script> 
+ 
+    function validate(){  
+    var name=document.f1.name.value;  
+    var password=document.f1.password.value;  
+    var status=false;  
+      
+	var object1 = { "name1" : "santhosh", "pass"  : "123456" };
+	 
+	
+	if(name==object1.name1 && password==object1.pass){
+	
+	<a href ="/home/cronj/Desktop/assignment/home.html"
+	}
+	else
+	{
+		//document.getElementById("mydivid2").style.display = 'none';
+		document.write("Failure");
+	}    
+
+    return status;  
+    }  
+    </script>  
+
+<!-- login for hr -->
+      <div id="login">
+    <form id="myformid1" name="f1" action="#" onsubmit="return validate()">  
+    <table>  
+    <tr><td>Enter Name:</td><td><input type="text" name="name"/>  
+    <span id="nameloc"></span></td></tr>  
+    <tr><td>Enter Password:</td><td><input type="password" name="password"/>  
+    <span id="passwordloc"></span></td></tr>  
+    <tr><td colspan="2"><input type="submit" value="register"/></td></tr>  
+    </table>  
+    </form>  
+</div>
+
+
+<div id="addemp">
+<form id="myformid2" name="myform" onsubmit="return myFunction();">
+
+Name:&nbsp &nbsp &nbsp	 <input type = text name="fname">
+<br>
+Password:	<input type=text name="id">
+<br>
+Salary:&nbsp &nbsp &nbsp <input type=text name="salary">
+<br>
+<input type = reset value="Reset">
+<input type =submit value=ADD>
+</form>
+</div>
+  
+<script>  
+function emp(id,fname,salary){  
+this.id=id;  
+this.fname=fname;  
+this.salary=salary;  
+  
+//this.changeSalary=changeSalary;  
+
+}
+var arr = new Array();
+
+function myFunction()
+{  
+var id=document.myform.id.value;  
+var fname = document.myform.fname.value;  
+var salary = document.myform.salary.value;  
+//document.write(id);
+var e= new emp(id,fname,salary);
+arr.push(e);
+
+var out = "";
+    var i;
+	
+for(i = 0; i < arr.length; i++) {
+        out +=  arr[i].fname +" " +arr[i].salary+"\n";
+	
+    }
+    document.getElementById("id02").innerHTML = out;
+return false;
+} 
+
+</script> 
+
+<script>
+function employeelogin()
+{
+	var name1=document.f4.empname.value;  
+    	var password=document.f4.emppass.value;
+	//document.write(name);
+	//document.write(password); 
+	var i;
+	output="";
+	document.getElementById("id03").innerHTML = arr[0].id +" "+arr[0].fname+" "+arr[0].salary;
+	for(i=0;i<arr.length;i++)
+	{
+		if(password==arr[i].id && name1==arr[i].fname)
+		{
+			output+= "name : "+arr[i].fname + " Salary : "+ arr[i].salary +" ";
+			document.getElementById("id03").innerHTML = output;
+			document.getElementById("id02").style.display = 'none';
+			document.getElementById("addemp").style.display = 'none';
+			
+		}
+		else
+		document.getElementById("id03").innerHTML = "Failure";
+	}
+return false;
+
+}
+
+</script> 
+<div id="id02"></div>
+
+<div id="id03"></div>
+<form name ="f4" id="emplogin" onsubmit="return employeelogin()" >
+name : <input id="empname" type = text name="empname">
+<br>
+pass : <input id="emppass" type = password name = "emppass">
+<input type = submit value="ELogin">
+</input>
+
+</form>
+
